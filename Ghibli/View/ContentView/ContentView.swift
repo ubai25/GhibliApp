@@ -9,22 +9,69 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let film = Film(id: nil, title: "Castle in the Sky", original_title: nil, original_title_romanised: nil, description: "Description : The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world", director: "Hayao Miyazaki", producer: nil, release_date: "1986", running_time: nil, rt_score: nil, people: nil, species: nil, locations: nil, vehicles: nil, url: nil)
+    @StateObject var viewModel = ContentViewModel()
     
     var body: some View {
         NavigationView{
-            List{
-                ForEach((1...20), id: \.self){ number in
-                    
-                    FilmItemCell(filmData: film)
-                        .padding(.bottom)
+            ZStack{
+                List{
+                    ForEach((1...20), id: \.self){ number in
+                        FilmItemCell(filmData: viewModel.film)
+                            .padding(.bottom)
+                    }
                 }
+                .listStyle(PlainListStyle())
+                
+                HStack{
+                    Spacer()
+                    
+                    VStack(){
+                        
+                        ScrollView(showsIndicators: false){
+                            ForEach((1...15), id: \.self){ number in
+                                Button(action: {
+                                    
+                                }, label: {
+                                    Text("1999")
+//                                        .fontWeight(.bold)
+                                        .padding(.horizontal, 18)
+                                        .padding(.vertical, 8)
+                                        .foregroundColor(.black)
+                                        .background(Color(.white))
+                                        .cornerRadius(10)
+                                })
+                                .padding(.vertical, 5)
+                            }
+                        }
+                        
+                        Spacer()
+                    }
+//                    .ignoresSafeArea()
+                    .frame(width: UIScreen.screenWidth/3)
+                    .background(Color(.gray).opacity(0.5))
+                    .cornerRadius(20)
+                }
+//                .hidden()
             }
             .navigationTitle("Ghibli")
-            
+            .navigationBarItems(trailing: Button(action:{
+                
+            }){
+                HStack{
+                    Text("Year")
+                    Image(systemName: "slider.horizontal.3")
+                }
+            })
         }
     }
 }
+
+extension UIScreen{
+   static let screenWidth = UIScreen.main.bounds.size.width
+   static let screenHeight = UIScreen.main.bounds.size.height
+   static let screenSize = UIScreen.main.bounds.size
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
