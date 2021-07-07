@@ -8,29 +8,59 @@
 import Foundation
 
 class ContentViewModel: ObservableObject {
+    @Published var dummyFilm = Film(id: nil, title: "Title dummy", original_title: nil, original_title_romanised: nil, description: "Description : The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world", director: "Hayao Miyazaki", producer: nil, release_date: "1986", running_time: nil, rt_score: nil, people: nil, species: nil, locations: nil, vehicles: nil, url: nil)
+
+    @Published var filmDatas = [Film]()
+    {
+        didSet{
+            for data in filmDatas {
+                yearsDict[data.release_date] = true
+            }
+            
+            print(yearsDict)
+        }
+    }
     
-    @Published var film = Film(id: nil, title: "Castle in the Sky", original_title: nil, original_title_romanised: nil, description: "Description : The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world", director: "Hayao Miyazaki", producer: nil, release_date: "1986", running_time: nil, rt_score: nil, people: nil, species: nil, locations: nil, vehicles: nil, url: nil)
+    @Published var filmDatasFiltered = [Film]()
     
-    @Published var years: [String] = ["1986", "1988", "1988", "1989", "1991", "1992", "1994", "1995", "1997", "1999", "2001"]
-    
-    @Published var yearsSet = Set<String>()
+    @Published var yearsDict = Dictionary<String, Bool>()
+    {
+        didSet{
+            filmDatasFiltered = filmDatas.filter { film in
+                return yearsDict[film.release_date] ?? false
+            }
+            
+            print(filmDatasFiltered.count)
+        }
+    }
     
     init() {
-        yearsSet = fillTheSets(arr: years)
+        callAPI()
     }
     
-    func fillTheSets(arr: [String]) -> Set<String> {
+    func callAPI() {
+        guard let url = URL(string: "https://ghibliapi.herokuapp.com/films") else { return}
         
-        var tempSets = Set<String>()
+        print(url)
         
-        for year in arr {
-            tempSets.insert(year)
-        }
-        
-        print(tempSets)
-        
-        return tempSets
+        URLSession.shared.dataTask(with: url){
+            data, response, err in
+            
+            
+            
+            if(err == nil){
+                do{
+                    let responseData = try JSONDecoder().decode([Film].self, from: data!)
+                    
+                    DispatchQueue.main.async {
+                        self.filmDatas = responseData
+                    }
+                    
+                }catch{
+                    print(error)
+                }
+            }
+        }.resume()
     }
-    
     
 }

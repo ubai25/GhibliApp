@@ -9,16 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var viewModel = ContentViewModel()
+    @ObservedObject var viewModel = ContentViewModel()
+    @State var isShowFilter : Bool = true
     
     var body: some View {
+        
         NavigationView{
             ZStack{
-                List{
-                    ForEach((1...20), id: \.self){ number in
-                        FilmItemCell(filmData: viewModel.film)
-                            .padding(.bottom)
-                    }
+                List((0..<viewModel.filmDatasFiltered.count), id:\.self){ number in
+                    FilmItemCell(filmData: viewModel.filmDatasFiltered[number])
                 }
                 .listStyle(PlainListStyle())
                 
@@ -28,50 +27,49 @@ struct ContentView: View {
                     VStack(){
                         
                         ScrollView(showsIndicators: false){
-                            ForEach((1...15), id: \.self){ number in
+                            ForEach(viewModel.yearsDict.keys.sorted(), id: \.self){ year in
                                 Button(action: {
-                                    
+                                    viewModel.yearsDict[year]?.toggle()
                                 }, label: {
-                                    Text("1999")
+                                    Text(year)
 //                                        .fontWeight(.bold)
                                         .padding(.horizontal, 18)
                                         .padding(.vertical, 8)
                                         .foregroundColor(.black)
                                         .background(Color(.white))
                                         .cornerRadius(10)
+                                        .shadow(color: Color(.black).opacity(0.2), radius: 5, x: 2, y: 2)
                                 })
                                 .padding(.vertical, 5)
                             }
+                            .frame(width: UIScreen.screenWidth/3)
                         }
-                        
-                        Spacer()
+//                        Spacer()
                     }
-//                    .ignoresSafeArea()
-                    .frame(width: UIScreen.screenWidth/3)
-                    .background(Color(.gray).opacity(0.5))
-                    .cornerRadius(20)
+                    .background(Color(.gray).opacity(0.8))
+                    .ignoresSafeArea(edges: .bottom)
+//                    .cornerRadius(20)
                 }
-//                .hidden()
+                .isHidden(isShowFilter)
             }
             .navigationTitle("Ghibli")
             .navigationBarItems(trailing: Button(action:{
-                
+                withAnimation {
+                    isShowFilter.toggle()
+                }
             }){
                 HStack{
                     Text("Year")
                     Image(systemName: "slider.horizontal.3")
                 }
             })
+            .onTapGesture {
+                isShowFilter = true
+            }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
-
-extension UIScreen{
-   static let screenWidth = UIScreen.main.bounds.size.width
-   static let screenHeight = UIScreen.main.bounds.size.height
-   static let screenSize = UIScreen.main.bounds.size
-}
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
