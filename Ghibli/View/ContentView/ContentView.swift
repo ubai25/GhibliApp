@@ -31,24 +31,20 @@ struct ContentView: View {
                                 Button(action: {
                                     viewModel.yearsDict[year]?.toggle()
                                 }, label: {
-                                    Text(year)
-//                                        .fontWeight(.bold)
-                                        .padding(.horizontal, 18)
-                                        .padding(.vertical, 8)
-                                        .foregroundColor(.black)
-                                        .background(Color(.white))
-                                        .cornerRadius(10)
-                                        .shadow(color: Color(.black).opacity(0.2), radius: 5, x: 2, y: 2)
+                                    if viewModel.yearsDict[year]! {
+                                        YearButtonActive(year: year)
+                                    }else{
+                                        YearButtonInactive(year: year)
+                                    }
+                                    
                                 })
-                                .padding(.vertical, 5)
+//                                .padding(.vertical, 5)
                             }
                             .frame(width: UIScreen.screenWidth/3)
                         }
-//                        Spacer()
                     }
-                    .background(Color(.gray).opacity(0.8))
+                    .background(Color(.white))
                     .ignoresSafeArea(edges: .bottom)
-//                    .cornerRadius(20)
                 }
                 .isHidden(isShowFilter)
             }
