@@ -1,0 +1,21 @@
+[
+  {
+    "id": "2baf70d1-42bb-4437-b551-e5fed5a87abe",
+    "title": "Title 1",
+    "description": "Description 1",
+    "director": "Hayao Miyazaki 1",
+    "release_date": "1986",
+  },{
+    "id": "2baf70d1-42bb-4437-b551-e5fed5a87abe",
+    "title": "Title 2",
+    "description": "Description 2",
+    "director": "Hayao Miyazaki 2",
+    "release_date": "1999",
+  },{
+    "id": "2baf70d1-42bb-4437-b551-e5fed5a87abe",
+    "title": "Title 3",
+    "description": "Description 3",
+    "director": "Hayao Miyazaki 3",
+    "release_date": "1999",
+  }
+]

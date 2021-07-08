@@ -17,7 +17,20 @@
 		6AF86BCE2694F02F0039A236 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF86BCD2694F02F0039A236 /* Extensions.swift */; };
 		6AF86BD02695BCB50039A236 /* YearButtonActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF86BCF2695BCB50039A236 /* YearButtonActive.swift */; };
 		6AF86BD22695BD110039A236 /* YearButtonInactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF86BD12695BD100039A236 /* YearButtonInactive.swift */; };
+		6AF86C1826966A600039A236 /* GhibliTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF86C1726966A600039A236 /* GhibliTests.swift */; };
+		6AF86C202696A45C0039A236 /* GhibliSource.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AF86C1F2696A45C0039A236 /* GhibliSource.json */; };
+		6AF86C212696A45C0039A236 /* GhibliSource.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AF86C1F2696A45C0039A236 /* GhibliSource.json */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6AF86C1A26966A600039A236 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6A48AD00269494FB00051860 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A48AD07269494FB00051860;
+			remoteInfo = Ghibli;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6A48AD08269494FB00051860 /* Ghibli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ghibli.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,10 +45,21 @@
 		6AF86BCD2694F02F0039A236 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6AF86BCF2695BCB50039A236 /* YearButtonActive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearButtonActive.swift; sourceTree = "<group>"; };
 		6AF86BD12695BD100039A236 /* YearButtonInactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearButtonInactive.swift; sourceTree = "<group>"; };
+		6AF86C1526966A5F0039A236 /* GhibliTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhibliTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AF86C1726966A600039A236 /* GhibliTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliTests.swift; sourceTree = "<group>"; };
+		6AF86C1926966A600039A236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AF86C1F2696A45C0039A236 /* GhibliSource.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GhibliSource.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6A48AD05269494FB00051860 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AF86C1226966A5F0039A236 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -49,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				6A48AD0A269494FB00051860 /* Ghibli */,
+				6AF86C1626966A600039A236 /* GhibliTests */,
 				6A48AD09269494FB00051860 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				6A48AD08269494FB00051860 /* Ghibli.app */,
+				6AF86C1526966A5F0039A236 /* GhibliTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +145,16 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		6AF86C1626966A600039A236 /* GhibliTests */ = {
+			isa = PBXGroup;
+			children = (
+				6AF86C1F2696A45C0039A236 /* GhibliSource.json */,
+				6AF86C1726966A600039A236 /* GhibliTests.swift */,
+				6AF86C1926966A600039A236 /* Info.plist */,
+			);
+			path = GhibliTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,6 +175,24 @@
 			productReference = 6A48AD08269494FB00051860 /* Ghibli.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6AF86C1426966A5F0039A236 /* GhibliTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AF86C1C26966A600039A236 /* Build configuration list for PBXNativeTarget "GhibliTests" */;
+			buildPhases = (
+				6AF86C1126966A5F0039A236 /* Sources */,
+				6AF86C1226966A5F0039A236 /* Frameworks */,
+				6AF86C1326966A5F0039A236 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6AF86C1B26966A600039A236 /* PBXTargetDependency */,
+			);
+			name = GhibliTests;
+			productName = GhibliTests;
+			productReference = 6AF86C1526966A5F0039A236 /* GhibliTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -150,6 +204,10 @@
 				TargetAttributes = {
 					6A48AD07269494FB00051860 = {
 						CreatedOnToolsVersion = 12.5.1;
+					};
+					6AF86C1426966A5F0039A236 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 6A48AD07269494FB00051860;
 					};
 				};
 			};
@@ -167,6 +225,7 @@
 			projectRoot = "";
 			targets = (
 				6A48AD07269494FB00051860 /* Ghibli */,
+				6AF86C1426966A5F0039A236 /* GhibliTests */,
 			);
 		};
 /* End PBXProject section */
@@ -176,8 +235,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AF86C202696A45C0039A236 /* GhibliSource.json in Resources */,
 				6A48AD13269494FE00051860 /* Preview Assets.xcassets in Resources */,
 				6A48AD10269494FE00051860 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AF86C1326966A5F0039A236 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AF86C212696A45C0039A236 /* GhibliSource.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +267,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6AF86C1126966A5F0039A236 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AF86C1826966A600039A236 /* GhibliTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6AF86C1B26966A600039A236 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A48AD07269494FB00051860 /* Ghibli */;
+			targetProxy = 6AF86C1A26966A600039A236 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6A48AD15269494FE00051860 /* Debug */ = {
@@ -362,6 +446,46 @@
 			};
 			name = Release;
 		};
+		6AF86C1D26966A600039A236 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G34J8SADKW;
+				INFOPLIST_FILE = GhibliTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ubaidillah.swiftui.GhibliTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ghibli.app/Ghibli";
+			};
+			name = Debug;
+		};
+		6AF86C1E26966A600039A236 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G34J8SADKW;
+				INFOPLIST_FILE = GhibliTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ubaidillah.swiftui.GhibliTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ghibli.app/Ghibli";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -379,6 +503,15 @@
 			buildConfigurations = (
 				6A48AD18269494FE00051860 /* Debug */,
 				6A48AD19269494FE00051860 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AF86C1C26966A600039A236 /* Build configuration list for PBXNativeTarget "GhibliTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AF86C1D26966A600039A236 /* Debug */,
+				6AF86C1E26966A600039A236 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

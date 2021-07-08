@@ -24,24 +24,20 @@ struct ContentView: View {
                 HStack{
                     Spacer()
                     
-                    VStack(){
-                        
-                        ScrollView(showsIndicators: false){
-                            ForEach(viewModel.yearsDict.keys.sorted(), id: \.self){ year in
-                                Button(action: {
-                                    viewModel.yearsDict[year]?.toggle()
-                                }, label: {
-                                    if viewModel.yearsDict[year]! {
-                                        YearButtonActive(year: year)
-                                    }else{
-                                        YearButtonInactive(year: year)
-                                    }
-                                    
-                                })
-//                                .padding(.vertical, 5)
-                            }
-                            .frame(width: UIScreen.screenWidth/3)
+                    ScrollView(showsIndicators: false){
+                        ForEach(viewModel.yearsDict.keys.sorted(), id: \.self){ year in
+                            Button(action: {
+                                viewModel.yearsDict[year]?.toggle()
+                            }, label: {
+                                if viewModel.yearsDict[year]! {
+                                    YearButtonActive(year: year)
+                                }else{
+                                    YearButtonInactive(year: year)
+                                }
+                                
+                            })
                         }
+                        .frame(width: UIScreen.screenWidth/3)
                     }
                     .background(Color(.white))
                     .ignoresSafeArea(edges: .bottom)
